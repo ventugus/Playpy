@@ -13,6 +13,6 @@ while janela_aberta:
             janela_aberta = False
 
 
-janela.blit(fundo,(0, 0))
-pygame.display.update()
+    janela.blit(fundo,(0, 0))
+    pygame.display.update()
 pygame.quit()

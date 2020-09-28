@@ -2,7 +2,10 @@ import pygame
 
 pygame.init()
 
-fundo = pygame.image.load("tela pura.png") #fundo da tela
+fundo = pygame.image.load('tela pura.png') #fundo da tela
+logo = pygame.image.load('logo2.png') #logo do jogo
+iniciar = pygame.image.load('iniciar.png') #botão iniciar
+resultado = pygame.image.load('ver resultado.png') #botão resultado
 janela = pygame.display.set_mode((1920,1080)) #tamanho da tela
 pygame.display.set_caption("hora de reciclar") # nome que aparece na barra superior da tela
 
@@ -14,5 +17,9 @@ while janela_aberta:
 
 
     janela.blit(fundo,(0, 0))
+    janela.blit(logo,(770,100))
+    janela.blit(iniciar,(700,630))
+    janela.blit(resultado,(700,730))
     pygame.display.update()
+
 pygame.quit()

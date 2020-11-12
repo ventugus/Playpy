@@ -9,7 +9,7 @@ y = 100 # posição da seta no eixo y
 velocidade = 10 # movimentação da seta em px
 
 fundo = pygame.image.load('imagens/tela do jogo/fundo.png') #fundo da tela
-seta = pygame.image.load('imagens/tela do jogo/seta.png')
+seta = pygame.image.load('imagens/Lixos/latinha.png')
 janela = pygame.display.set_mode((1280,720)) #tamanho da tela
 pontuacao = pygame.image.load('imagens/tela do jogo/pontuação.png') #pontuação do jogo
 tempo = pygame.image.load('imagens/tela do jogo/tempo.png') #tempo do jogo
@@ -33,6 +33,10 @@ while janela_aberta:
         x += velocidade
     if comandos[pygame.K_LEFT] and x>= 200:
         x -= velocidade
+    if comandos[pygame.K_DOWN]:
+        y += velocidade
+    if comandos[pygame.K_UP]:
+        y -= velocidade
 
 
     janela.blit(fundo,(0, 0))

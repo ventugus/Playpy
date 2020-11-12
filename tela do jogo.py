@@ -1,6 +1,5 @@
 import pygame
-
-
+from random import randint
 
 pygame.init()
 
@@ -8,8 +7,32 @@ x = 525 # posição da seta no eixo x  MIN: 200 MAX: 850
 y = 100 # posição da seta no eixo y
 velocidade = 10 # movimentação da seta em px
 
+lixos = ['caixa papel', 'celular', 'garrafa vidro', 'latinha', 'latinha metal', 'maça', 'plastico', 'sorvete', 'vidro']
+
 fundo = pygame.image.load('imagens/tela do jogo/fundo.png') #fundo da tela
-seta = pygame.image.load('imagens/Lixos/latinha.png')
+
+
+def mudarLixo():
+    """
+    função criada para sortear o lixo da lista
+    :return: retorna uma string como o lixo sorteado
+    """
+    l = randint(0, 8)
+    lixo = lixos[l]
+    return lixo
+
+def mostrarLixoAtual():
+    """
+    carrega a imagem do lixo na tela
+    :return: retorna o carregamento da imagem do lixo
+    """
+    seta = pygame.image.load('imagens/Lixos/' + mudarLixo() + '.png')
+    return seta
+
+seta = mostrarLixoAtual() # carrega a imagem de um lixo aleatoriamente
+
+#seta = pygame.image.load('imagens/Lixos/latinha.png')
+
 janela = pygame.display.set_mode((1280,720)) #tamanho da tela
 pontuacao = pygame.image.load('imagens/tela do jogo/pontuação.png') #pontuação do jogo
 tempo = pygame.image.load('imagens/tela do jogo/tempo.png') #tempo do jogo

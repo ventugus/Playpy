@@ -49,11 +49,12 @@ pontuacao = pygame.image.load('imagens/tela do jogo/pontuação.png') #pontuaç�
 tempo = pygame.image.load('imagens/tela do jogo/tempo.png') #tempo do jogo
 som = pygame.image.load('imagens/tela do jogo/botão com som.png') #botão de som
 pausa = pygame.image.load('imagens/tela do jogo/botão pausa.png') # botão de pause
-lazul = pygame.image.load('imagens/tela do jogo/lixeira azul.png') #lixeira azul
-lverde = pygame.image.load('imagens/tela do jogo/lixeira verde.png') #lixeira verde
-lmarrom = pygame.image.load('imagens/tela do jogo/lixeira marrom.png') #lixeira marrom
-lamarela = pygame.image.load('imagens/tela do jogo/lixeira amarela.png') #lixeira amarela
-lvermelha = pygame.image.load('imagens/tela do jogo/lixeira vermelha.png') #lixeira vermelha
+lazul = pygame.image.load('imagens/tela do jogo/lixo papel.png') #lixeira azul
+lverde = pygame.image.load('imagens/tela do jogo/lixo vidro.png') #lixeira verde
+lmarrom = pygame.image.load('imagens/tela do jogo/lixo organico.png') #lixeira marrom
+lamarela = pygame.image.load('imagens/tela do jogo/lixo metal.png') #lixeira amarela
+lvermelha = pygame.image.load('imagens/tela do jogo/lixo plastico.png') #lixeira vermelha
+
 pygame.display.set_caption("imagens/hora de reciclar") # nome que aparece na barra superior da tela
 
 janela_aberta = True
@@ -87,6 +88,13 @@ while janela_aberta:
 
     if (y > pos_lixeira_topo):
         y = 1200
+
+    janela.blit(lazul, (250,300))
+    janela.blit(lverde, (410, 300))
+    janela.blit(lmarrom, (570, 300))
+    janela.blit(lamarela, (730, 300))
+    janela.blit(lvermelha, (890, 300))
+
 
     pygame.display.update()
 

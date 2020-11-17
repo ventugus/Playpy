@@ -5,7 +5,18 @@ pygame.init()
 
 x = 525 # posição da seta no eixo x  MIN: 200 MAX: 850
 y = 100 # posição da seta no eixo y
+
+pos_lixeira_y = 300 # posição das lixeiras no eixo x
+pos_lixeira_topo = 200
+
+pos_lazul_x = 250 # posição das lixeiras no eixo y
+pos_lverde_x = 410
+pos_lmarrom_x = 570
+pos_lamarela_x = 730
+pos_lvermelha_x = 890
+
 velocidade = 10 # movimentação da seta em px
+
 
 lixos = ['caixa papel', 'celular', 'garrafa vidro', 'latinha', 'latinha metal', 'maça', 'plastico', 'sorvete', 'vidro']
 
@@ -68,12 +79,14 @@ while janela_aberta:
     janela.blit(som,(1100,20))
     janela.blit(pausa,(1170,20))
     janela.blit(seta, (x, y))
-    janela.blit(lazul, (250,300))
-    janela.blit(lverde, (410, 300))
-    janela.blit(lmarrom, (570, 300))
-    janela.blit(lamarela, (730, 300))
-    janela.blit(lvermelha, (890, 300))
+    janela.blit(lazul, (pos_lazul_x, pos_lixeira_y))
+    janela.blit(lverde, (pos_lverde_x, pos_lixeira_y))
+    janela.blit(lmarrom, (pos_lmarrom_x, pos_lixeira_y))
+    janela.blit(lamarela, (pos_lamarela_x, pos_lixeira_y))
+    janela.blit(lvermelha, (pos_lvermelha_x, pos_lixeira_y))
 
+    if (y > pos_lixeira_topo):
+        y = 1200
 
     pygame.display.update()
 

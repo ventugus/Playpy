@@ -9,16 +9,24 @@ y = 100 # posição da seta no eixo y
 pos_lixeira_y = 300 # posição das lixeiras no eixo x
 pos_lixeira_topo = 200
 
-pos_lazul_x = 250 # posição das lixeiras no eixo y
-pos_lverde_x = 410
-pos_lmarrom_x = 570
-pos_lamarela_x = 730
-pos_lvermelha_x = 890
+pos_lixeira_papel_x = 250 # posição das lixeiras no eixo y
+pos_lixeira_vidro_x = 410
+pos_lixeira_organico_x = 570
+pos_lixeira_metal_x = 730
+pos_lixeira_plastico_x = 890
 
 velocidade = 10 # movimentação da seta em px
 
 
 lixos = ['caixa papel', 'celular', 'garrafa vidro', 'latinha', 'latinha metal', 'maça', 'plastico', 'sorvete', 'vidro']
+
+# listagem dos tipos de lixo
+papel = ['caixa papel']
+vidro = ['garrafa vidro', 'vidro']
+organico = ['maça', 'sorvete']
+metal = ['celular', 'latinha metal']
+plastico = ['plastico']
+
 
 fundo = pygame.image.load('imagens/tela do jogo/fundo.png') #fundo da tela
 
@@ -32,13 +40,43 @@ def mudarLixo():
     lixo = lixos[l]
     return lixo
 
+tipo = 'vazio'
+
+
+"""
+define qual tipo de lixo é e printa na tela
+em desenvolvimento para ser usado em outra função
+que coloca o lixo na lixeira correta
+"""
+
+tipo = ''
+def definir_tipo(lixo):
+    if lixo in papel:
+        tipo = 'papel'
+    elif lixo in vidro:
+        tipo = 'vidro'
+    elif lixo in organico:
+        tipo = 'organico'
+    elif lixo in metal:
+        tipo = 'metal'
+    elif lixo in plastico:
+        tipo = 'plastico'
+
+    return tipo
+
+
 def mostrarLixoAtual():
     """
     carrega a imagem do lixo na tela
     :return: retorna o carregamento da imagem do lixo
     """
-    seta = pygame.image.load('imagens/Lixos/' + mudarLixo() + '.png')
+    atual = mudarLixo() # lixo sorteado dentro da lista
+    tipo = definir_tipo(atual)
+    print(tipo) # teste se a função definir_tipo() funciona, corrigir pq ela só funciona localmente dentro da função
+    seta = pygame.image.load('imagens/Lixos/' + atual + '.png')
     return seta
+
+
 
 seta = mostrarLixoAtual() # carrega a imagem de um lixo aleatoriamente
 
@@ -80,14 +118,22 @@ while janela_aberta:
     janela.blit(som,(1100,20))
     janela.blit(pausa,(1170,20))
     janela.blit(seta, (x, y))
-    janela.blit(lazul, (pos_lazul_x, pos_lixeira_y))
-    janela.blit(lverde, (pos_lverde_x, pos_lixeira_y))
-    janela.blit(lmarrom, (pos_lmarrom_x, pos_lixeira_y))
-    janela.blit(lamarela, (pos_lamarela_x, pos_lixeira_y))
-    janela.blit(lvermelha, (pos_lvermelha_x, pos_lixeira_y))
+    janela.blit(lazul, (pos_lixeira_papel_x, pos_lixeira_y))
+    janela.blit(lverde, (pos_lixeira_vidro_x, pos_lixeira_y))
+    janela.blit(lmarrom, (pos_lixeira_organico_x, pos_lixeira_y))
+    janela.blit(lamarela, (pos_lixeira_metal_x, pos_lixeira_y))
+    janela.blit(lvermelha, (pos_lixeira_plastico_x, pos_lixeira_y))
 
+    """
+    Quando o lixo encosta em qualquer lixeira ele some
+    em desenvolvimento - objetivo é sumir na lixeira correta
+    e mudar o lixo
+    """
     if (y > pos_lixeira_topo):
         y = 1200
+
+
+
 
     janela.blit(lazul, (250,300))
     janela.blit(lverde, (410, 300))
@@ -97,6 +143,7 @@ while janela_aberta:
 
 
     pygame.display.update()
+
 
 
 pygame.quit()

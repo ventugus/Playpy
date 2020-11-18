@@ -43,14 +43,13 @@ def mudarLixo():
 tipo = 'vazio'
 
 
-"""
-define qual tipo de lixo é e printa na tela
-em desenvolvimento para ser usado em outra função
-que coloca o lixo na lixeira correta
-"""
 
 tipo = ''
 def definir_tipo(lixo):
+    """
+    :param lixo: lixo atual que está na tela, sorteado dentro de uma lista
+    :return: uma string descrevendo qual o tipo do lixo
+    """
     if lixo in papel:
         tipo = 'papel'
     elif lixo in vidro:
@@ -71,8 +70,8 @@ def mostrarLixoAtual():
     :return: retorna o carregamento da imagem do lixo
     """
     atual = mudarLixo() # lixo sorteado dentro da lista
+    global tipo # faz a variavel criada fora da função funcionar dentro da função
     tipo = definir_tipo(atual)
-    print(tipo) # teste se a função definir_tipo() funciona, corrigir pq ela só funciona localmente dentro da função
     seta = pygame.image.load('imagens/Lixos/' + atual + '.png')
     return seta
 
@@ -80,7 +79,7 @@ def mostrarLixoAtual():
 
 seta = mostrarLixoAtual() # carrega a imagem de um lixo aleatoriamente
 
-#seta = pygame.image.load('imagens/Lixos/latinha.png')
+#seta = pygame.image.load('imagens/Lixos/latinha.png') exemplo de como está defido o valor do código acima
 
 janela = pygame.display.set_mode((1280,720)) #tamanho da tela
 pontuacao = pygame.image.load('imagens/tela do jogo/pontuação.png') #pontuação do jogo
@@ -141,7 +140,7 @@ while janela_aberta:
     janela.blit(lamarela, (730, 300))
     janela.blit(lvermelha, (890, 300))
 
-
+    print(tipo)
     pygame.display.update()
 
 

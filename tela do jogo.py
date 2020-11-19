@@ -24,7 +24,7 @@ lixos = ['caixa papel', 'celular', 'garrafa vidro', 'latinha', 'latinha metal', 
 papel = ['caixa papel']
 vidro = ['garrafa vidro', 'vidro']
 organico = ['maça', 'sorvete']
-metal = ['celular', 'latinha metal']
+metal = ['celular', 'latinha', 'latinha metal']
 plastico = ['plastico']
 
 
@@ -74,6 +74,27 @@ def mostrarLixoAtual():
     tipo = definir_tipo(atual)
     seta = pygame.image.load('imagens/Lixos/' + atual + '.png')
     return seta
+
+def escolher_lixeira(lixo):
+    """
+    detecta se o lixo está na lixeira correta,
+    o lixo tem que entrar na posição exata de onde está a lixeira,
+    o valor 160 define o canto da lixeira
+    :param lixo: o lixo que aparece na tela
+    :return:
+    """
+    global y
+    global x
+    if lixo == 'papel' and y > pos_lixeira_topo and pos_lixeira_papel_x - 160 < x < pos_lixeira_papel_x:
+        y = 1200
+    if lixo == 'vidro' and y > pos_lixeira_topo and pos_lixeira_vidro_x - 160 < x < pos_lixeira_vidro_x:
+        y = 1200
+    if lixo == 'organico' and y > pos_lixeira_topo and pos_lixeira_organico_x - 160 < x < pos_lixeira_organico_x:
+        y = 1200
+    if lixo == 'metal' and y > pos_lixeira_topo and pos_lixeira_metal_x - 160 < x < pos_lixeira_metal_x:
+        y = 1200
+    if lixo == 'plastico' and y > pos_lixeira_topo and pos_lixeira_plastico_x - 160 < x < pos_lixeira_plastico_x:
+        y = 1200
 
 
 
@@ -127,9 +148,10 @@ while janela_aberta:
     Quando o lixo encosta em qualquer lixeira ele some
     em desenvolvimento - objetivo é sumir na lixeira correta
     e mudar o lixo
-    """
+    
     if (y > pos_lixeira_topo):
         y = 1200
+    """
 
 
 
@@ -140,7 +162,8 @@ while janela_aberta:
     janela.blit(lamarela, (730, 300))
     janela.blit(lvermelha, (890, 300))
 
-    print(tipo)
+    escolher_lixeira(tipo)
+
     pygame.display.update()
 
 

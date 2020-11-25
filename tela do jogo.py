@@ -30,13 +30,18 @@ plastico = ['plastico']
 
 fundo = pygame.image.load('imagens/tela do jogo/fundo.png') #fundo da tela
 
-
+l = ''
+inicio = 0
+fim = 8
 def mudarLixo():
     """
     função criada para sortear o lixo da lista
     :return: retorna uma string como o lixo sorteado
     """
-    l = randint(0, 8)
+    global l
+    global inicio
+    global fim
+    l = randint(inicio, fim)
     lixo = lixos[l]
     return lixo
 
@@ -85,16 +90,38 @@ def escolher_lixeira(lixo):
     """
     global y
     global x
+    global seta
+    global l
+    global fim
+    lixo_atual = lixos[l]
     if lixo == 'papel' and y > pos_lixeira_topo and pos_lixeira_papel_x - 160 < x < pos_lixeira_papel_x:
-        y = 1200
-    if lixo == 'vidro' and y > pos_lixeira_topo and pos_lixeira_vidro_x - 160 < x < pos_lixeira_vidro_x:
-        y = 1200
-    if lixo == 'organico' and y > pos_lixeira_topo and pos_lixeira_organico_x - 160 < x < pos_lixeira_organico_x:
-        y = 1200
-    if lixo == 'metal' and y > pos_lixeira_topo and pos_lixeira_metal_x - 160 < x < pos_lixeira_metal_x:
-        y = 1200
-    if lixo == 'plastico' and y > pos_lixeira_topo and pos_lixeira_plastico_x - 160 < x < pos_lixeira_plastico_x:
-        y = 1200
+        lixos.remove(lixo_atual)
+        fim -= 1
+        seta = mostrarLixoAtual()
+    elif lixo == 'vidro' and y > pos_lixeira_topo and pos_lixeira_vidro_x - 160 < x < pos_lixeira_vidro_x:
+        lixos.remove(lixo_atual)
+        fim -= 1
+        seta = mostrarLixoAtual()
+    elif lixo == 'organico' and y > pos_lixeira_topo and pos_lixeira_organico_x - 160 < x < pos_lixeira_organico_x:
+        lixos.remove(lixo_atual)
+        fim -= 1
+        seta = mostrarLixoAtual()
+    elif lixo == 'metal' and y > pos_lixeira_topo and pos_lixeira_metal_x - 160 < x < pos_lixeira_metal_x:
+        lixos.remove(lixo_atual)
+        fim -= 1
+        seta = mostrarLixoAtual()
+    elif lixo == 'plastico' and y > pos_lixeira_topo and pos_lixeira_plastico_x - 160 < x < pos_lixeira_plastico_x:
+        lixos.remove(lixo_atual)
+        fim -= 1
+        seta = mostrarLixoAtual()
+    elif y > pos_lixeira_topo:
+        x = 525
+        y = 100
+    elif len(lixos) == 1:
+        seta = pygame.image.load('imagens/Lixos/fim-de-jogo.png')
+
+
+
 
 
 

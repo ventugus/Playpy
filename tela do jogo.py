@@ -149,9 +149,9 @@ while janela_aberta:
             janela_aberta = False
 
     comandos = pygame.key.get_pressed() #movimentaçao da seta
-    if comandos[pygame.K_RIGHT] and x<= 850:
+    if comandos[pygame.K_RIGHT] and x<= 875:
         x += velocidade
-    if comandos[pygame.K_LEFT] and x>= 200:
+    if comandos[pygame.K_LEFT] and x>= 255:
         x -= velocidade
     if comandos[pygame.K_DOWN]:
         y += velocidade

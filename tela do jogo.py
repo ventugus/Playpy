@@ -148,7 +148,7 @@ while janela_aberta:
         if event.type == pygame.QUIT:
             janela_aberta = False
 
-    comandos = pygame.key.get_pressed() #movimentaçao da seta
+    comandos = pygame.key.get_pressed() #movimentaçao do lixo
     if comandos[pygame.K_RIGHT] and x<= 875:
         x += velocidade
     if comandos[pygame.K_LEFT] and x>= 255:

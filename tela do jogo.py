@@ -188,7 +188,7 @@ while janela_aberta:
     janela.blit(lmarrom, (570, 300))
     janela.blit(lamarela, (730, 300))
     janela.blit(lvermelha, (890, 300))
-
+    pygame.time.delay(7)
     escolher_lixeira(tipo)
 
     pygame.display.update()

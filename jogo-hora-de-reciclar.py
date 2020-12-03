@@ -6,7 +6,7 @@ fundo = pygame.image.load('imagens/tela inicial/tela-inicial.png') #fundo da tel
 logo = pygame.image.load('imagens/tela inicial/logo.png') #logo do jogo
 iniciar = pygame.image.load('imagens/tela inicial/iniciar.png') #botão iniciar
 janela = pygame.display.set_mode((1280,720)) #tamanho da tela
-pygame.display.set_caption("imagens/tela inicial/hora de reciclar") #nome que aparece na barra superior da tela
+pygame.display.set_caption("Hora de reciclar") #nome que aparece na barra superior da tela
 
 
 janela_aberta = True

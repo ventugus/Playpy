@@ -137,7 +137,7 @@ lmarrom = pygame.image.load('imagens/tela do jogo/lixo organico.png')  # lixeira
 lamarela = pygame.image.load('imagens/tela do jogo/lixo metal.png')  # lixeira amarela
 lvermelha = pygame.image.load('imagens/tela do jogo/lixo plastico.png')  # lixeira vermelha
 
-pygame.display.set_caption("imagens/hora de reciclar")  # nome que aparece na barra superior da tela
+pygame.display.set_caption("Hora de reciclar")  # nome que aparece na barra superior da tela
 janela_aberta = True
 while janela_aberta:
     for event in pygame.event.get():

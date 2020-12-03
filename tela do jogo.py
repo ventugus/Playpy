@@ -119,8 +119,8 @@ def escolher_lixeira(lixo):
         x = 525
         y = 100
     elif len(lixos) == 1:
-        fim = pygame.image.load('imagens/Lixos/fim-de-jogo.png')
-        janela.blit(fim,(200,100))
+        fim = pygame.image.load('imagens/Lixos/campeao.png')
+        janela.blit(fim,(190,45))
 
 
 

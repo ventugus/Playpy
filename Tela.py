@@ -6,8 +6,8 @@ pygame.init()
 x = 525  # posição da seta no eixo x  MIN: 200 MAX: 850
 y = 100  # posição da seta no eixo y
 
-pos_lixeira_y = 300  # posição das lixeiras no eixo x
-pos_lixeira_topo = 200
+pos_lixeira_y = 450  # posição das lixeiras no eixo y -  era 300 mudei para descer a lixeira
+pos_lixeira_topo = 350 # era 200 - mudei pq eu desci a lixeira
 
 pos_lixeira_papel_x = 250  # posição das lixeiras no eixo y
 pos_lixeira_vidro_x = 410
@@ -174,11 +174,11 @@ while janela_aberta:
         y = 1200
     """
 
-    janela.blit(lazul, (250, 300))
-    janela.blit(lverde, (410, 300))
-    janela.blit(lmarrom, (570, 300))
-    janela.blit(lamarela, (730, 300))
-    janela.blit(lvermelha, (890, 300))
+    janela.blit(lazul, (250, pos_lixeira_y))
+    janela.blit(lverde, (410, pos_lixeira_y))
+    janela.blit(lmarrom, (570, pos_lixeira_y))
+    janela.blit(lamarela, (730, pos_lixeira_y))
+    janela.blit(lvermelha, (890, pos_lixeira_y))
     pygame.time.delay(7)
     escolher_lixeira(tipo)
     pygame.display.update()
